@@ -3,7 +3,7 @@ var DishSelectView = function (container,model) {
 	
 	var main = container.find('#dishhead');
 	var allDishes = container.find("#allDishes");
-	//(container).hide();
+	container.hide();
 
 
 	var hehe = '';
@@ -15,7 +15,7 @@ var DishSelectView = function (container,model) {
 		for(i=0;i<haha.length;i++)
 		{
 			var dish = haha[i];
-			hehe += "<div class='col-md-3'><br /><h4>"
+			hehe += "<div class='col-md-2'><br /><h4>"
 			hehe += "<center><img src=js/images/"+dish.image+' width=100%><br /><br/>';
 			hehe += dish.name;
 			hehe += "</h4></center>"

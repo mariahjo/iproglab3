@@ -11,7 +11,7 @@ var ExampleView = function (container,model) {
 	var dishPrice = container.find("#dishPrice");
 
 
-	//$(container).hide();
+	container.hide();
 	
 	model.addDishToMenu(200);
 	model.addDishToMenu(3);

@@ -10,10 +10,10 @@ color: #415667;
 }
 
 #start{
-	background-image: url('js/images/start.jpg');
+	/*background-image: url('js/images/start.jpg');
 	background-size: cover;
 	background-repeat: no-repeat;
-	background-position: center center;
+	background-position: center center;*/
 }
 #info
 {
