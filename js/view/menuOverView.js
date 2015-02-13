@@ -4,7 +4,7 @@ var MenuOverView = function (container,model) {
 
 	var sub = container.find("#sub");
 	var food= container.find("#foodOverview")
-
+	container.hide();
 
 	var print = '';
 	print += '<br /><h2>My Dinner: '+model.getNumberOfGuests()+' people</h2><span id=back-button><input class="btn btn-lg" type="submit" value="Go back and edit dinner"></span>'

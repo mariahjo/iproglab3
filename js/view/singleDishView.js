@@ -5,7 +5,7 @@ var SingleDishView = function (container,model) {
   	// and/or ones that responed to interaction)
 
 	var leftField = container.find("#left");
-
+	container.hide();
 
 	var food = model.getDish(1);
 

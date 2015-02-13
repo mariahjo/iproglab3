@@ -1,9 +1,9 @@
 var DishSelectView = function (container,model) {
 
 	
-
+	var main = container.find('#dishhead');
 	var allDishes = container.find("#allDishes");
-
+	//(container).hide();
 
 
 	var hehe = '';
