@@ -1,6 +1,7 @@
 var DishSelectView = function (container,model) {
 
 	this.container=container;
+	
 	var main = container.find('#dishhead');
 	var allDishes = container.find("#allDishes");
 	container.hide();
@@ -16,7 +17,7 @@ var DishSelectView = function (container,model) {
 		{
 			var dish = haha[i];
 			hehe += "<div class='col-md-2'><br /><h4>"
-			hehe += "<center><img src=js/images/"+dish.image+' width=100%><br /><br/>';
+			hehe += "<center><img class='food' id='" + dish.id +"' src=js/images/"+dish.image+' width=100%><br /><br/>';
 			hehe += dish.name;
 			hehe += "</h4></center>"
 			hehe += "<p>"+dish.description.substr(0, 80)+'...</p></div>'
@@ -26,5 +27,8 @@ var DishSelectView = function (container,model) {
 	return hehe
 	};
 	allDishes.html(this.getDishes());
+
+
+	this.clickImage = container.find('.food');
 
 }

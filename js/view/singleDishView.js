@@ -1,13 +1,18 @@
 var SingleDishView = function (container,model) {
 
 	this.container=container;
-	// Get all the relevant elements of the view (ones that show data
-  	// and/or ones that responed to interaction)
+	model.addObserver(this);
+
 
 	var leftField = container.find("#left");
 	container.hide();
 
-	var food = model.getDish(1);
+
+	this.foodPage = function(id){
+
+	var thisDish = model.currentDish;
+
+	var food = model.getDish(thisDish);
 
 
 	var print ='';
@@ -83,6 +88,18 @@ var SingleDishView = function (container,model) {
 
 
 	rightField.html(print2);
+
+	}
+
+	this.foodPage();
+
+	this.update = function(){
+		alert('hej')
+		this.foodPage();
+
+		console.log('Update method SingleDishView');
+		// console.log(this.getNames());
+	}
 
  }
  

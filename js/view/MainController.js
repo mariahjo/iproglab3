@@ -5,6 +5,8 @@ var exampleView = new ExampleView($("#exampleView"),model);
 var exampleViewController = new ExampleViewController(exampleView,model);
 
 var dishSelectView = new DishSelectView($("#dishSelectView"),model);
+var dishSelectController = new DishSelectController(dishSelectView,model);
+
 var singleDishView = new SingleDishView($("#singleDishView"),model);
 
 var menuOverView = new MenuOverView($("#menuOverView"),model);
