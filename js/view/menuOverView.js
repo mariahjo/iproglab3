@@ -56,8 +56,10 @@ var MenuOverView = function (container,model) {
 	model.addObserver(this)
 
 	this.update = function (obj){
-		console.log('mjehehhe')
-		this.getDishes()	
+		this.getDishes()
+
+		this.printButton = container.find("#print-button");	
+		this.backButton= container.find("#back-button");
 	
 
 	}
