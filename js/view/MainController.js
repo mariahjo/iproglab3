@@ -8,6 +8,7 @@ var dishSelectView = new DishSelectView($("#dishSelectView"),model);
 var dishSelectController = new DishSelectController(dishSelectView,model);
 
 var singleDishView = new SingleDishView($("#singleDishView"),model);
+var singleDishController = new SingleDishController(singleDishView,model)
 
 var menuOverView = new MenuOverView($("#menuOverView"),model);
 var menuOverViewController = new MenuOverViewController(menuOverView,model);

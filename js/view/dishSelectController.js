@@ -8,6 +8,7 @@ var DishSelectController = function(view, model ) {
 
  	view.container.hide();
  	$(singleDishView).show();
+ 	$(searchMenuView).hide();
 	
  });
 

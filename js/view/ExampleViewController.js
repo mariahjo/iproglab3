@@ -12,6 +12,7 @@ var ExampleViewController = function(view, model ) {
  view.container.hide();
  $(searchMenuView).hide();
  $(dishSelectView).hide();
+ $(singleDishView).hide();
  $(menuOverView).show();
  });
 

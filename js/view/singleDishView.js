@@ -19,7 +19,7 @@ var SingleDishView = function (container,model) {
 	print += '<br /><h2>'+food.name+'</h2><br /><br />';
 	print += "<img src=js/images/"+food.image+' width="100%"><br/><br />';
 	print += '<p>'+food.description+'</p>';
-	print+='<br/><div class="col-md-7"><input class="btn btn-default" type="submit" value="Back to Select Dish"></div>'
+	print+='<br/><div class="col-md-7"><input class="btn btn-default" id="back" type="back" value="Back to Select Dish"></div><br /><br />'
 	leftField.html(print);
 
 
@@ -42,7 +42,7 @@ var SingleDishView = function (container,model) {
 	
 	print2+='</div>';
 
-	print2 += '<div id="iName" class="col-md-5">'
+	print2 += '<div id="iName" class="col-md-6">'
 
 	this.getName = function(){
 		var ingredients = food.ingredients
@@ -74,7 +74,7 @@ var SingleDishView = function (container,model) {
 
 
 	print2+='<div id="ingredientBottom">';
-	print2+='<div class="col-md-8"><input class="btn btn-default" type="submit" value="Confirm Dish"></div>';
+	print2+='<div class="col-md-9"><input class="btn btn-default" id="submit" type="submit" value="Confirm Dish"></div>';
 
 	print2+='<div class="col-md-3">SEK	'+totPrice+'<br /></div>';
 	print2+='</div>';
@@ -82,6 +82,7 @@ var SingleDishView = function (container,model) {
 	};
 
 	this.getPrice();
+
 
 	
 
@@ -93,8 +94,11 @@ var SingleDishView = function (container,model) {
 
 	this.foodPage();
 
+
+	this.backButton = container.find('#back');
+	this.submitButton = container.find('#submit');
+
 	this.update = function(){
-		alert('hej')
 		this.foodPage();
 
 		console.log('Update method SingleDishView');
