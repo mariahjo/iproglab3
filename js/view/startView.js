@@ -1,8 +1,8 @@
 var StartView = function (container,model) {
+	
+	this.container=container;
 
-	var hej = container.find("#hej");
-
-	hej.html('hej');
+	this.button=container.find('#print-button');
  	//container.hide();
 
  }

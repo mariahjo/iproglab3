@@ -1,16 +1,18 @@
 var MenuOverView = function (container,model) {
 
-
+	this.container=container;
 
 	var sub = container.find("#sub");
-	var food= container.find("#foodOverview")
+	var food= container.find("#foodOverview");
+	
 	container.hide();
 
+	this.getDishes = function(){
 	var print = '';
 	print += '<br /><h2>My Dinner: '+model.getNumberOfGuests()+' people</h2><span id=back-button><input class="btn btn-lg" type="submit" value="Go back and edit dinner"></span>'
 	sub.html(print);
 
-
+	this.backButton= container.find("#back-button");
 
 
 	var print2 ='';
@@ -31,7 +33,6 @@ var MenuOverView = function (container,model) {
 
 	print2 += '<div class="col-md-3"></div>';
 
-	this.getDishes = function(){
 
 		for(i=0;i<menu.length;i++){
 			var dish = menu[i];
@@ -42,17 +43,24 @@ var MenuOverView = function (container,model) {
 			print2 += "</h3></center>"
 			print2 += "<p>"+dish.description.substr(0, 80)+'...</p></div>'
 		}
+		print2 += '</div><div class="row"><div class="col-md-12"><center><br /><br /><h2>Total price: '
+		print2 += model.getTotalMenuPrice() + ' SEK<br />';
+		print2 += '<br /><span id=print-button><input class="btn btn-lg" type="submit" value="Print Full Recipes"></span></center></div></div>';
 
-		return print2
+		food.html(print2);
 	}
 
 	this.getDishes()
 
+	this.printButton = container.find("#print-button");
+	model.addObserver(this)
 
-	print2 += '</div><div class="row"><div class="col-md-12"><center><br /><br /><h2>Total price: '
-	print2 += model.getTotalMenuPrice() + ' SEK<br />';
-	print2 += '<br /><span id=print-button><input class="btn btn-lg" type="submit" value="Print Full Recipes"></span></center></div></div>';
+	this.update = function (obj){
+		console.log('mjehehhe')
+		this.getDishes()	
+	
 
-	food.html(print2);
+	}
+
  }
  

@@ -9,18 +9,9 @@ var DinnerModel = function() {
 		observers.push(observer);
 	}
 	var notifyObservers = function(obj) {
-		if (obj){
-
-		alert('Shit happens in view!')
-		/*obj.update(), kanske? */
-
-		}
-		else{
-
-			for (i=0;i<observers.length;i++){
+		for (i=0;i<observers.length;i++){
 				observers[i].update();
 			}
-		}
 	}
 
 	//TODO Lab 2 implement the data structure that will hold number of guest
@@ -29,7 +20,8 @@ var DinnerModel = function() {
 
 	this.setNumberOfGuests = function(num) {
 		//TODO Lab 2
-		guestNumb += num;
+		guestNumb = num;
+		console.log(guestNumb)
 		notifyObservers();
 	}
 	
@@ -119,9 +111,12 @@ var DinnerModel = function() {
 	this.removeDishFromMenu = function(id) {
 	var dish = this.getDish(id);
 	var type = dish.type; 
+	console.log("removeDishFromMenu in dinnerModel");
 	if(chosenDishes[type] === id) {
 		delete chosenDishes[type];
+		notifyObservers();
 		}
+
 	}
 
 	//function that returns all dishes of specific type (i.e. "starter", "main dish" or "dessert")

@@ -1,7 +1,7 @@
 var PrintPageView = function (container,model) {
 
 
-
+	this.container=container;
 	var sub = container.find("#sub");
 	var food= container.find("#foodOverview");
 	var printFood= container.find("#printFood");
@@ -10,7 +10,7 @@ var PrintPageView = function (container,model) {
 	var print = '';
 	print += '<br /><h2>My Dinner: '+model.getNumberOfGuests()+' people</h2><span id=back-button><input class="btn btn-lg" type="submit" value="Go back and edit dinner"></span>'
 	sub.html(print);
-
+	this.backButton= container.find("#back-button");
 
 
 

@@ -8,12 +8,7 @@ $(function() {
 
 	
 	//And create the needed controllers and views
-	var exampleView = new ExampleView($("#exampleView"),model);
-	var dishSelectView = new DishSelectView($("#dishSelectView"),model);
-	var singleDishView = new SingleDishView($("#singleDishView"),model);
-	var menuOverView = new MenuOverView($("#menuOverView"),model);
-	var printPageView = new PrintPageView($("#printPageView"),model);
-	var searchMenuView = new SearchMenuView($("#searchMenuView"),model);
-	var startView = new StartView($("#startView"),model);
+    var mainController = new MainController(model);
+
 
 });
