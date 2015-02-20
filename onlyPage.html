@@ -11,9 +11,9 @@
     <link rel="stylesheet" type="text/css" href="style.css">
   </head>
 
-  <body id="start">
-    <div class="container-fluid">
-      <div class="row">
+  <body>
+    <div class="container-fluid" id="all">
+      <div class="row" id="all">
         <div id = "startHeader" class="col-md-12">
           <h1>Homelette <h1 class="small">From the best chefs in the world directly into your kitchen NOT</h1></h1>
         </div> 
@@ -73,22 +73,20 @@
             <div class="row">
               <div class="col-md-6">
                   <div class="input-group">
-                      <input type="text" class="form-control" placeholder="Search for...">
+                      <input type="text" id="searchString" class="form-control" placeholder="Search for...">
                       <span class="input-group-btn">
-                        <button class="btn btn-default" type="button">Go!</button>
+                        <button class="btn btn-default" id="searchButton" type="button">Go!</button>
                       </span>
                   </div>
               </div>
               <div class="col-md-4">
-                <div class="dropdown">
-                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">Choose course <span class="caret"></span>
-                    </button>
-                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Main</a></li>
-                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Starter</a></li>
-                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Dessert</a></li>
-                    </ul>
-                  </div>
+
+                <select id ="typeSelect" class="form-control"multiple="multiple">
+                <option class="dropdown" id='starter'>Starter</option>
+                <option class="dropdown" id='main'>Main</option>
+                <option class="dropdown" id='dessert'>Dessert</option>
+              </select>
+
               </div>
             </div>
           </div>
@@ -161,6 +159,7 @@
     <script src="js/view/printPageViewController.js"></script>
 
     <script src="js/view/searchMenuView.js"></script>
+    <script src="js/view/searchMenuController.js"></script>
 
     <script src="js/view/startView.js"></script>
     <script src="js/view/StartController.js"></script>

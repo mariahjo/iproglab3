@@ -5,6 +5,9 @@ var DinnerModel = function() {
 	var chosenDishes = new Object();
 	var observers = [];
 	this.currentDish = 1;
+	this.showDishes = "starter";
+	this.searchWord = "";
+
 
 	this.addObserver = function(observer) {
 		observers.push(observer);
@@ -24,6 +27,17 @@ var DinnerModel = function() {
 
 	this.addCurrentDish = function(id) {
 		this.currentDish = id
+		notifyObservers();
+	}
+
+	this.changeShowDishes = function(type) {
+		this.showDishes = type
+		notifyObservers();
+	}
+
+	this.changeSearchWord = function(word) {
+		this.searchWord = word;
+		console.log(this.searchWord);
 		notifyObservers();
 	}
 
@@ -61,19 +75,17 @@ var DinnerModel = function() {
 	this.getDishPrice = function(id) {
 
 		var dishPrice = 0;
-		
-		for(i=0;i<dishes.length;i++){
-			var dish = dishes[i];
 
-			if (dish.id === id) {
-				var ingredients = dish.ingredients;
 
-				for (j=0;j<ingredients.length;j++){
-					var ingredient = ingredients[j];
-					dishPrice += ingredient.price;
-				}
-			}
+		var dish = this.getDish(id);
+
+		var ingredients = dish.ingredients;
+
+		for (var j=0;j<ingredients.length;j++){
+			var ingredient = ingredients[j];
+			dishPrice += ingredient.price;
 		}
+		
 
 		return dishPrice*guestNumb;
 	}
@@ -115,6 +127,7 @@ var DinnerModel = function() {
 		var dish = this.getDish(id);
 		var dishType = dish.type;
 		chosenDishes[dishType] = id;
+		notifyObservers();
 	}
 
 	//Removes dish from menu

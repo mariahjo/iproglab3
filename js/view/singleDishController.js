@@ -1,7 +1,11 @@
-var SingleDishController = function(view, model ) {
+var SingleDishController = function(view, model) {
  
+ //alert('hej');
 
- view.backButton.click(function(){
+
+this.refreshDish = function(){
+
+ view.goBackButton.click(function(){
 
  view.container.hide();
  $(searchMenuView).show();
@@ -10,5 +14,21 @@ var SingleDishController = function(view, model ) {
  
  });
 
-}
 
+ view.submitButton.click(function(){
+
+ 	var id = $(this).attr('id');
+
+ 	id = parseInt(id);
+
+ 	model.addDishToMenu(id);
+ 
+ });
+
+
+ }
+
+
+ this.refreshDish();
+
+}

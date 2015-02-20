@@ -60,6 +60,9 @@ var MenuOverView = function (container,model) {
 
 		this.printButton = container.find("#print-button");	
 		this.backButton= container.find("#back-button");
+
+		menuOverViewController.refreshOverview();
+
 	
 
 	}

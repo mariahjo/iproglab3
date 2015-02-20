@@ -9,16 +9,23 @@ font-family: "Helvetica neue", "Lucida Grande", sans-serif;
 color: #415667;
 }
 
-#start{
-	/*background-image: url('js/images/start.jpg');
+#all {
+	width: 100%;
+	padding: 0px;
+	margin: 0px;
+}
+
+#startView{
+	background-image: url('js/images/start.jpg');
 	background-size: cover;
 	background-repeat: no-repeat;
-	background-position: center center;*/
+	background-position: center center;
+	padding-bottom: 25%;
 }
 #info
 {
 	background-color: rgba(65,86,103,0.7);
-	padding: 20px 10px 20px 10px;
+	padding: 20px 10px 20px 65px;
 	color: #fff;
 }
 
@@ -28,7 +35,7 @@ color: #415667;
 
 #startHeader{
 	padding-left: 40px;
-	background-color: rgba(132,169,62,0.7);
+	background-color: rgba(132,169,62,1);
 	padding-bottom: 25px;
 	padding-top: 20px;
 }
@@ -39,6 +46,10 @@ color: #415667;
 
 #imageCol{
 	padding-top: 25px;
+}
+
+#typeSelect{
+	padding-bottom: 0px;
 }
 
 h1 {

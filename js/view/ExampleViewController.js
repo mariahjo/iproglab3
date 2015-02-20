@@ -16,6 +16,10 @@ var ExampleViewController = function(view, model ) {
  $(menuOverView).show();
  });
 
+
+this.refresh = function(){
+
+
 view.removeStarter.click(function(){
  var dish=model.getSelectedDish('starter');
  var id=dish.id;
@@ -36,6 +40,13 @@ console.log("removeMain in ExampleViewController");
  model.removeDishFromMenu(id);
 console.log("removeDessert in ExampleViewController");
  });
+
+
+ }
+
+
+ this.refresh();
+
 
 }
 

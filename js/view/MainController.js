@@ -2,21 +2,23 @@ var MainController = function(model) {
  
 
 var exampleView = new ExampleView($("#exampleView"),model);
-var exampleViewController = new ExampleViewController(exampleView,model);
+window.exampleViewController = new ExampleViewController(exampleView,model);
+
 
 var dishSelectView = new DishSelectView($("#dishSelectView"),model);
-var dishSelectController = new DishSelectController(dishSelectView,model);
+window.dishSelectController = new DishSelectController(dishSelectView,model);
 
 var singleDishView = new SingleDishView($("#singleDishView"),model);
-var singleDishController = new SingleDishController(singleDishView,model)
+window.singleDishController = new SingleDishController(singleDishView,model);
 
 var menuOverView = new MenuOverView($("#menuOverView"),model);
-var menuOverViewController = new MenuOverViewController(menuOverView,model);
+window.menuOverViewController = new MenuOverViewController(menuOverView,model);
 
 var printPageView = new PrintPageView($("#printPageView"),model);
-var printPageViewController = new PrintPageViewController (printPageView, model);
+window.printPageViewController = new PrintPageViewController (printPageView, model);
 
 var searchMenuView = new SearchMenuView($("#searchMenuView"),model);
+window.searchMenuController = new SearchMenuController (searchMenuView, model);
 
 var startView = new StartView($("#startView"),model);
 var startController = new StartController (startView, model);

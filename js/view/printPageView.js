@@ -2,11 +2,21 @@ var PrintPageView = function (container,model) {
 
 
 	this.container=container;
+
+
+
+	model.addObserver(this);
+
+
+	
 	var sub = container.find("#sub");
 	var food= container.find("#foodOverview");
 	var printFood= container.find("#printFood");
 
 	container.hide();
+
+
+	this.printing = function() {
 	var print = '';
 	print += '<br /><h2>My Dinner: '+model.getNumberOfGuests()+' people</h2><span id=back-button><input class="btn btn-lg" type="submit" value="Go back and edit dinner"></span>'
 	sub.html(print);
@@ -44,7 +54,7 @@ var PrintPageView = function (container,model) {
 			for(j=0;j<ingredients.length;j++)
 				{
 					var ingredient = ingredients[j];
-					print2+= ingredient.quantity+' ';
+					print2+= Math.ceil(ingredient.quantity*model.getNumberOfGuests()*10/10)+' ';
 					print2+= ingredient.unit+' ';
 					print2+= ingredient.name+'<br/>';
 
@@ -58,7 +68,24 @@ var PrintPageView = function (container,model) {
 	return print2;
 
 	}
+
 	printFood.html(this.foodPrint());
+
+
+	}
+
+	this.printing()
+
+	this.update = function(){
+
+	this.printing()
+
+	printPageViewController.refreshPrint();
+
+
+
+
+	}
 }
 
 

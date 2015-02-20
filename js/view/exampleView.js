@@ -1,9 +1,10 @@
 //ExampleView Object constructor
 var ExampleView = function (container,model) {
 	this.container=container;
+
 	model.addObserver(this);
-	// Get all the relevant elements of the view (ones that show data
-  	// and/or ones that responed to interaction)
+
+
 	this.numberOfGuests = container.find("#numberOfGuests");
 	this.plusButton = container.find("#plusGuest");
 	this.minusButton = container.find("#minusGuest");
@@ -16,8 +17,6 @@ var ExampleView = function (container,model) {
 
 	container.hide();
 	
-
-//	model.removeDishFromMenu(2);
 
 
 	this.numberOfGuests.html(model.getNumberOfGuests);
@@ -71,6 +70,7 @@ var ExampleView = function (container,model) {
 			var mainid = chosenDishes.main;
 			var mainPrice = model.getDishPrice(mainid)
 			print+= mainPrice+'<br />';
+
 		}
 
 		if('dessert' in chosenDishes){
@@ -84,7 +84,6 @@ var ExampleView = function (container,model) {
 
 	dishPrice.html(this.getPrice());
 
-	// console.log(this.getNames());
 
 
 	this.update = function (obj){
@@ -97,8 +96,8 @@ var ExampleView = function (container,model) {
 		this.removeMain = container.find("#removeMain");
 		this.removeDessert = container.find("#removeDessert");
 
-		console.log('Update method exampleview');
-		// console.log(this.getNames());
+
+		exampleViewController.refresh();
 	}
 
 

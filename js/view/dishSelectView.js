@@ -1,14 +1,21 @@
 var DishSelectView = function (container,model) {
 
 	this.container=container;
+	model.addObserver(this);
 	
 	var main = container.find('#dishhead');
 	var allDishes = container.find("#allDishes");
 	container.hide();
 
+	this.selectFunction = function(){
+
 
 	var hehe = '';
-	var haha = model.getAllDishes('main');
+	var selectedType = model.showDishes;
+	alert(selectedType);
+	var filter= model.searchWord;
+	console.log(filter);
+	var haha = model.getAllDishes(selectedType,filter);
 
 	this.getDishes = function()
 	{ 
@@ -28,7 +35,24 @@ var DishSelectView = function (container,model) {
 	};
 	allDishes.html(this.getDishes());
 
+	}
+
+	this.selectFunction();
+
 
 	this.clickImage = container.find('.food');
+
+
+	this.update = function(){
+
+		this.selectFunction();
+
+		this.clickImage = container.find('.food');
+
+		dishSelectController.refreshDishSelect()
+
+
+
+	}
 
 }

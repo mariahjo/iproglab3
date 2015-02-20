@@ -1,5 +1,10 @@
 var MenuOverViewController = function(view, model ) {
  
+
+
+ this.refreshOverview = function(){
+
+
  view.backButton.click(function(){
  view.container.hide();
  $(dishSelectView).show();
@@ -11,6 +16,12 @@ var MenuOverViewController = function(view, model ) {
  view.container.hide();
  $(printPageView).show();
  });
+
+
+ }
+
+
+ this.refreshOverview();
  
 }
 

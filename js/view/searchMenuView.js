@@ -1,9 +1,11 @@
 var SearchMenuView = function (container,model) {
 	this.container = container;
-	var hej = container.find("#hej");
 
-	hej.html('hej');
+	this.dropdown = container.find(".dropdown");
+	this.searchButton = container.find("#searchButton");
+
  	container.hide();
+
 
  }
  

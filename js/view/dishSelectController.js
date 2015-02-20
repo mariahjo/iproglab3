@@ -1,5 +1,7 @@
 var DishSelectController = function(view, model ) {
  
+this.refreshDishSelect = function(){
+
  view.clickImage.click(function(){
 
  	var id = $(this).attr('id');
@@ -12,6 +14,9 @@ var DishSelectController = function(view, model ) {
 	
  });
 
+}
+
+this.refreshDishSelect()
 
 
 }
