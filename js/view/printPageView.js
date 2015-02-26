@@ -1,8 +1,8 @@
 var PrintPageView = function (container,model) {
-
+//View för utskriftssidan
 
 	this.container=container;
-
+	container.hide();
 
 
 	model.addObserver(this);
@@ -13,8 +13,6 @@ var PrintPageView = function (container,model) {
 	var food= container.find("#foodOverview");
 	var printFood= container.find("#printFood");
 
-	container.hide();
-
 
 	this.printing = function() {
 	var print = '';
@@ -23,7 +21,7 @@ var PrintPageView = function (container,model) {
 	this.backButton= container.find("#back-button");
 
 
-
+	//Hämtar info om rätterna på menyn
 	var print2='';
 	var chosenDishes = model.getFullMenu();
 	var menu=[];
@@ -39,7 +37,7 @@ var PrintPageView = function (container,model) {
 		menu.push(model.getSelectedDish('dessert'));
 	}
 
-
+	//Skriver ut info om rätterna på menyn
 	this.foodPrint = function()
 	{
 		for(i=0;i<menu.length;i++)
@@ -76,6 +74,7 @@ var PrintPageView = function (container,model) {
 
 	this.printing()
 
+	//Funktion som körs vid update
 	this.update = function(){
 
 	this.printing()

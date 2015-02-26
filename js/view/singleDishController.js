@@ -1,10 +1,10 @@
 var SingleDishController = function(view, model) {
- 
- //alert('hej');
+//Controller för enskilda receptssidan  
 
 
 this.refreshDish = function(){
 
+//Knapp för att gå tillbaka
  view.goBackButton.click(function(){
 
  view.container.hide();
@@ -14,7 +14,7 @@ this.refreshDish = function(){
  
  });
 
-
+//Knapp för att lägga till på menyn
  view.submitButton.click(function(){
 
  	var id = $(this).attr('id');

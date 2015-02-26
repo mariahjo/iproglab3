@@ -1,19 +1,17 @@
 var SearchMenuController = function(view, model ) {
+	//Controller för sökmenyn
  
  this.searchWord ='';
 
  this.refreshSearch = function(){
+
+ //Kod för valet av sorts maträtt
  view.dropdown.click(function(){
-
- 	console.log('hehe');
-
  	var id = $(this).attr('id');	
  	model.changeShowDishes(id);
-
-
  });
 
-
+//Kod för sökningsbaren
  view.searchButton.click(function(){
 
 	searchWord = $('#searchString').val();

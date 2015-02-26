@@ -1,6 +1,9 @@
-//ExampleView Object constructor
 var ExampleView = function (container,model) {
+//View för sidomenyn
+
 	this.container=container;
+	container.hide();
+
 
 	model.addObserver(this);
 
@@ -12,18 +15,16 @@ var ExampleView = function (container,model) {
 	
 	var totalCost = container.find("#totalCost");
 	var dishName = container.find("#dishName");
-	var dishPrice = container.find("#dishPrice");
+	var dishPrice = container.find("#dishPrice");	
 
-
-	container.hide();
-	
-
-
+	//Skriver ut antal gäster på vald plats i HTML-koden
 	this.numberOfGuests.html(model.getNumberOfGuests);
 
+	//Skriver ut totala kostnaden på vald plats i HTML-koden
 	totalCost.html(model.getTotalMenuPrice());
 
 
+	//Funktion för att skriva ut namnet på alla rätter i vår meny
 	this.getNames = function(){
 		var print = '';
 		var chosenDishes = model.getFullMenu();
@@ -57,6 +58,8 @@ var ExampleView = function (container,model) {
 	this.removeMain = container.find("#removeMain");
 	this.removeDessert = container.find("#removeDessert");
 
+
+	//Funktion för att skriva ut priset av alla rätter i vår meny
 	this.getPrice = function(){
 		var print = '';
 		var chosenDishes = model.getFullMenu();
@@ -85,7 +88,7 @@ var ExampleView = function (container,model) {
 	dishPrice.html(this.getPrice());
 
 
-
+	//Funktion som körs vid update
 	this.update = function (obj){
 		this.numberOfGuests.html(model.getNumberOfGuests);
 		totalCost.html(model.getTotalMenuPrice());
@@ -95,7 +98,6 @@ var ExampleView = function (container,model) {
 		this.removeStarter = container.find("#removeStarter"); 
 		this.removeMain = container.find("#removeMain");
 		this.removeDessert = container.find("#removeDessert");
-
 
 		exampleViewController.refresh();
 	}

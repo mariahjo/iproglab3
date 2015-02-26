@@ -1,20 +1,22 @@
 var SingleDishView = function (container,model) {
+	//View för sidan med enskilda recept
 
 	this.container=container;
+	container.hide();
+
 	model.addObserver(this);
 
 
 	var leftField = container.find("#left");
-	container.hide();
-
 
 	this.foodPage = function(id){
 
+	//Hämtar vilken dish som är vald
 	var thisDish = model.currentDish;
 
 	var food = model.getDish(thisDish);
 
-
+	//Kod för att hämta ut information om vald rätt
 	var print ='';
 	print += '<br /><h2>'+food.name+'</h2><br /><br />';
 	print += "<img src=js/images/"+food.image+' width="100%"><br/><br />';
@@ -23,12 +25,13 @@ var SingleDishView = function (container,model) {
 	leftField.html(print);
 
 
-
+	//Hämtar ut information om rättens ingredienser
 	var rightField = container.find("#right");
 	var print2 = '';
 	var numbGuest = model.getNumberOfGuests();
 	print2 += '<h3>Ingredients for '+numbGuest+' person(s).</h3>';
 	print2 += '<div id="iAmount" class="col-md-3">'
+
 	this.getAmount = function(){
 		var ingredients = food.ingredients
 		for(i=0;i<ingredients.length;i++){
@@ -94,6 +97,7 @@ var SingleDishView = function (container,model) {
 	this.goBackButton = container.find('#back');
 	this.submitButton = container.find('.submit');
 
+	//Funktion för updatering
 	this.update = function(){
 		this.foodPage();
 

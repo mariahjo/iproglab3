@@ -1,12 +1,15 @@
 var MenuOverView = function (container,model) {
+	// View för översiktssidan
 
 	this.container=container;
+	container.hide();
+
 
 	var sub = container.find("#sub");
 	var food= container.find("#foodOverview");
 	
-	container.hide();
 
+	//Funktion som hämtar ut information om vår meny från model
 	this.getDishes = function(){
 	var print = '';
 	print += '<br /><h2>My Dinner: '+model.getNumberOfGuests()+' people</h2><span id=back-button><input class="btn btn-lg" type="submit" value="Go back and edit dinner"></span>'
@@ -34,6 +37,7 @@ var MenuOverView = function (container,model) {
 	print2 += '<div class="col-md-3"></div>';
 
 
+		//Skriver HTML-kod och information för alla enskilda rätter på menyn
 		for(i=0;i<menu.length;i++){
 			var dish = menu[i];
 
@@ -55,6 +59,7 @@ var MenuOverView = function (container,model) {
 	this.printButton = container.find("#print-button");
 	model.addObserver(this)
 
+	//Funktion som körs vid update
 	this.update = function (obj){
 		this.getDishes()
 

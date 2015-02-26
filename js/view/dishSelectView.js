@@ -1,22 +1,29 @@
 var DishSelectView = function (container,model) {
+	// View för sidan där vi ser alla maträtter av en viss typ
 
 	this.container=container;
+	container.hide();
 	model.addObserver(this);
 	
+
 	var main = container.find('#dishhead');
 	var allDishes = container.find("#allDishes");
-	container.hide();
 
 	this.selectFunction = function(){
 
 
 	var hehe = '';
+
+	//Hämtar vilken sorts dish vi vill se för närvarande
 	var selectedType = model.showDishes;
-	alert(selectedType);
+
+	//Hämtar eventuellt filter
 	var filter= model.searchWord;
-	console.log(filter);
+
+	//Hämtar alla dishes av vald sort och som passar filtret
 	var haha = model.getAllDishes(selectedType,filter);
 
+	//Funktion som skapar HTML-kod för alla dishes och hämtar ut valda saker ur model
 	this.getDishes = function()
 	{ 
 		hehe += '<div class="row">'
@@ -33,16 +40,17 @@ var DishSelectView = function (container,model) {
 		hehe += '</div>'
 	return hehe
 	};
+
 	allDishes.html(this.getDishes());
 
 	}
 
 	this.selectFunction();
 
-
+	// Gör bilderna klickbara, händer saker i controllern
 	this.clickImage = container.find('.food');
 
-
+	//Funktion som körs vid update
 	this.update = function(){
 
 		this.selectFunction();
@@ -50,9 +58,6 @@ var DishSelectView = function (container,model) {
 		this.clickImage = container.find('.food');
 
 		dishSelectController.refreshDishSelect()
-
-
-
 	}
 
 }

@@ -1,11 +1,12 @@
 $(function() {
+	
 	//We instantiate our model
 	var model = new DinnerModel();
 	
 
 
 	
-	//And create the needed controllers and views
+	//And create the main controller
     var mainController = new MainController(model);
 
 
